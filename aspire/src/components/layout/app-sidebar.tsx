@@ -15,7 +15,7 @@ const SidebarNavLink = ({ item }: SidebarNavLinkProps) => (
     className={({ isActive }) =>
       [
         "flex items-center gap-4 transition-colors duration-200 ease-in-out",
-        "text-sidebar-nav font-sans",
+        "text-subtitle leading-subtitle",
         isActive ? "text-aspire-green font-bold" : "text-aspire-white",
       ].join(" ")
     }
@@ -48,7 +48,7 @@ export const AppSidebar = () => {
           data-testid="sidebar-logo"
         />
         <p
-          className="mt-5 text-sidebar-tagline opacity-30 pr-14"
+          className="mt-5 text-description leading-description opacity-30 pr-14"
           data-testid="sidebar-tagline"
         >
           Trusted way of banking for 3,000+ SMEs and startups in Singapore

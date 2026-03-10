@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 
 @theme {
   /* ── colours ─────────────────────────────────────── */
@@ -8,26 +7,24 @@
   --color-aspire-white: #ffffff;
 
   /* ── Font family ───────────────────────────────────────── */
-  --font-family-sans: "Open Sans", sans-serif;
+  --font-sans: "Open Sans", sans-serif; /* Adding this too for Tailwind v4 */
 
   /* ── Font sizes with paired line-heights ───────────────── */
-  --font-size-sidebar-tagline: 15px; /* was 15pt */
-  --line-height-sidebar-tagline: 20px;
+  --text-description: 1rem;
+  --text-subtitle: 1.25rem;
 
-  /* Spec 2 – Home / Payments / Credit / Settings */
-  --font-size-sidebar-nav: 16px; /* was 16pt */
-  --line-height-sidebar-nav: 32px;
-
-  /* Spec 3 – Cards (Bold, same size) */
-  --font-size-sidebar-nav-bold: 16px; /* was 16pt */
-  --line-height-sidebar-nav-bold: 32px;
+  /* Line heights */
+  --leading-description: 1.25rem;
+  --leading-subtitle: 2rem;
 }
 
-@utility filter-icon-white {
-  filter: brightness(0) invert(1);
-}
-
-@utility filter-icon-green {
-  filter: brightness(0) saturate(100%) invert(58%) sepia(85%) saturate(453%)
-    hue-rotate(117deg) brightness(95%) contrast(98%);
+/* Add this one utility */
+@utility nav-icon {
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
