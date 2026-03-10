@@ -15,7 +15,7 @@ const SidebarNavLink = ({ item }: SidebarNavLinkProps) => (
     className={({ isActive }) =>
       [
         "flex items-center gap-4 transition-colors duration-200 ease-in-out",
-        "text-subtitle leading-subtitle",
+        "text-subtitle leading-title",
         isActive ? "text-aspire-green font-bold" : "text-aspire-white",
       ].join(" ")
     }
