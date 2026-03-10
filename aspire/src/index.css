@@ -8,22 +8,27 @@
   --color-aspire-black: #222222;
   --color-aspire-blue: #325baf;
   --color-aspire-blue-light: #23cefd;
+  --color-aspire-white-light: #fcfcfc;
+  --color-aspire-shadow: #00000014;
 
   /* ── Font family ───────────────────────────────────────── */
   --font-sans: "Open Sans", sans-serif; /* Adding this too for Tailwind v4 */
 
   /* ── Font sizes with paired line-heights ───────────────── */
 
+  --text-xxs: 0.75rem; /* 12px */
   --text-xs: 0.8125rem; /* 13px */
   --text-sm: 0.875rem; /* 14px */
   --text-description: 1rem; /* 16px */
   --text-subtitle: 1.25rem; /* 20px */
+  --text-lg: 1.5rem; /* 24px */
   --text-title: 1.625rem; /* 26px */
 
   /* Line heights */
   --leading-xs: 1rem; /* 16px */
   --leading-sm: 1.125rem; /* 18px */
   --leading-description: 1.25rem; /* 20px */
+  --leading-lg: 1.5rem; /* 24px */
   --leading-subtitle: 1.75rem; /* 28px */
   --leading-title: 2rem; /* 32px  */
 }
