@@ -20,19 +20,16 @@ const SidebarNavLink = ({ item }: SidebarNavLinkProps) => (
       ].join(" ")
     }
   >
-    {({ isActive }) => (
-      <>
-        <img
-          src={item.icon}
-          alt={item.label}
-          className={[
-            "h-6 w-6",
-            isActive ? "filter-icon-green" : "filter-icon-white",
-          ].join(" ")}
-        />
-        <span data-testid={`sidebar-label-${item.id}`}>{item.label}</span>
-      </>
-    )}
+    <div
+      className="h-6 w-6 nav-icon"
+      style={{
+        WebkitMaskImage: `url(${item.icon})`,
+        maskImage: `url(${item.icon})`,
+      }}
+      data-testid={`sidebar-icon-${item.id}`}
+      aria-hidden="true"
+    />
+    <span data-testid={`sidebar-label-${item.id}`}>{item.label}</span>
   </NavLink>
 );
 

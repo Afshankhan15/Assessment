@@ -1,8 +1,8 @@
-import HomeIcon from "../assets/images/Home.svg";
-import CardIcon from "../assets/images/Card.svg";
-import PaymentsIcon from "../assets/images/Payments.svg";
-import CreditIcon from "../assets/images/Credit.svg";
-import SettingsIcon from "../assets/images/Account.svg";
+import HomeIcon from "../assets/images/Home.png";
+import CardIcon from "../assets/images/Card.png";
+import PaymentsIcon from "../assets/images/Payments.png";
+import CreditIcon from "../assets/images/Credit.png";
+import SettingsIcon from "../assets/images/Account.png";
 import type { NavItem } from "../types/navigation";
 
 export const sidebarNavigation: NavItem[] = [
