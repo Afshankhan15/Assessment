@@ -7,6 +7,7 @@
   --color-aspire-white: #ffffff;
   --color-aspire-black: #222222;
   --color-aspire-blue: #325baf;
+  --color-aspire-blue-light: #23cefd;
 
   /* ── Font family ───────────────────────────────────────── */
   --font-sans: "Open Sans", sans-serif; /* Adding this too for Tailwind v4 */

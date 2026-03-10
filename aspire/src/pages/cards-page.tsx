@@ -20,6 +20,14 @@ const CardsPage = () => {
           </button>
         </div>
       </header>
+
+      {/* tab section */}
+      <div className="flex gap-8 mt-9 text-sm leading-description text-aspire-black">
+        <button className="font-semibold border-b-2 border-aspire-blue-light pb-1">
+          My debit cards
+        </button>
+        <button className="opacity-30">All company cards</button>
+      </div>
     </section>
   );
 };
