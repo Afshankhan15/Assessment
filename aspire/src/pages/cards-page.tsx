@@ -4,6 +4,7 @@ import { useCards } from "../hooks/use-cards";
 import { AddCardDialog } from "../components/cards/add-card-dialog";
 import { DebitCardCarousel } from "../components/cards/debit-card-carousel";
 import { CardActionBar } from "../components/cards/card-action-bar";
+import { CardSummaryPanel } from "../components/cards/card-summary-panel";
 
 const CardsPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -88,7 +89,7 @@ const CardsPage = () => {
       </div>
 
       {/* ── MAIN PANEL*/}
-      <div className="bg-aspire-white grid grid-cols-2 px-10 py-8 mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
+      <div className="bg-aspire-white grid grid-cols-2 gap-12 px-10 py-8 mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
         {/* LEFT COLUMN: carousel + action bar */}
         <div className="flex flex-col">
           {/* NEW: replaces the static card — same visual, dynamic data + carousel */}
@@ -108,7 +109,9 @@ const CardsPage = () => {
         </div>
 
         {/* RIGHT COLUMN: card details + transactions */}
-        <div className="bg-orange-500">Transaction div</div>
+        <CardSummaryPanel
+          activeCard={cards.find((c) => c.id === activeCardId)}
+        />
       </div>
 
       {/* Add Card modal*/}
