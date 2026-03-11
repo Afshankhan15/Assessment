@@ -47,10 +47,16 @@ export const DebitCardCarousel = ({
   return (
     <section data-testid="debit-card-carousel">
       <div className="flex items-center gap-2 text-aspire-green justify-end">
-        <img src={RemoveEyeLogo} alt="eye logo" className="w-4 h-4" />
+        <img
+          src={RemoveEyeLogo}
+          alt="eye logo"
+          onClick={onToggleNumber}
+          className={`w-4 h-4 cursor-pointer transition-opacity duration-300 ${
+            showCardNumber ? "opacity-30" : "opacity-100"
+          }`}
+        />
         <button
           type="button"
-          onClick={onToggleNumber}
           className="text-xxs leading-description font-bold text-aspire-green"
         >
           {showCardNumber ? "Hide card number" : "Show card number"}
