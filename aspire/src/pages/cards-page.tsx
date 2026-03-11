@@ -3,6 +3,7 @@ import BoxIcon from "../assets/images/box@3x.png";
 import { useCards } from "../hooks/use-cards";
 import { AddCardDialog } from "../components/cards/add-card-dialog";
 import { DebitCardCarousel } from "../components/cards/debit-card-carousel";
+import { CardActionBar } from "../components/cards/card-action-bar";
 
 const CardsPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -29,6 +30,10 @@ const CardsPage = () => {
     await addCard(name);
     setIsDialogOpen(false);
     showToast("New card added successfully!");
+  };
+
+  const handleFreezeToggle = async () => {
+    await toggleFreeze();
   };
 
   if (isLoading) {
@@ -93,6 +98,12 @@ const CardsPage = () => {
             showCardNumber={showCardNumber}
             onToggleNumber={() => setShowCardNumber((v) => !v)}
             onCardChange={setActiveCardId}
+          />
+
+          {/* freeze/unfreeze + other action buttons */}
+          <CardActionBar
+            activeCard={activeCard}
+            onToggleFreeze={handleFreezeToggle}
           />
         </div>
 
