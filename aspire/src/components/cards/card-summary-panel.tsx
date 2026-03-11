@@ -138,103 +138,107 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
       </Collapsible.Root>
 
       {/* Recent Transactions */}
-      <Collapsible.Root
-        open={transactionsOpen}
-        onOpenChange={setTransactionsOpen}
-        className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl overflow-hidden"
-      >
-        <Collapsible.Trigger
-          className="bg-aspire-background flex w-full items-center justify-between px-6 py-6 border border-aspire-border rounded-b-xl"
-          data-testid="recent-transactions-toggle"
+      <div className="relative">
+        <Collapsible.Root
+          open={transactionsOpen}
+          onOpenChange={setTransactionsOpen}
+          className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl overflow-hidden relative z-20"
         >
-          <div className="flex items-center gap-3">
+          <Collapsible.Trigger
+            className="bg-aspire-background flex w-full items-center justify-between px-6 py-6 border border-aspire-border rounded-b-xl"
+            data-testid="recent-transactions-toggle"
+          >
+            <div className="flex items-center gap-3">
+              <img
+                src={TransactionIcon}
+                alt="Recent transactions"
+                className="w-6 h-6 object-contain"
+              />
+              <span className="text-aspire-navy text-sm leading-sm">
+                Recent transactions
+              </span>
+            </div>
             <img
-              src={TransactionIcon}
-              alt="Recent transactions"
-              className="w-6 h-6 object-contain"
+              src={DownArrowIcon}
+              alt="toggle"
+              className={`w-5 h-5 object-contain transition-transform duration-300 ${
+                transactionsOpen ? "rotate-180" : "rotate-0"
+              }`}
             />
-            <span className="text-aspire-navy text-sm leading-sm">
-              Recent transactions
-            </span>
-          </div>
-          <img
-            src={DownArrowIcon}
-            alt="toggle"
-            className={`w-5 h-5 object-contain transition-transform duration-300 ${
-              transactionsOpen ? "rotate-180" : "rotate-0"
-            }`}
-          />
-        </Collapsible.Trigger>
+          </Collapsible.Trigger>
 
-        {/* MOCK TRANSACTIONS */}
+          {/* MOCK TRANSACTIONS */}
 
-        <Collapsible.Content className="px-6">
-          <div className="flex flex-col">
-            {MOCK_TRANSACTIONS.map((item) => (
-              <article
-                key={item.id}
-                className="flex items-start gap-3 bg-aspire-white border-b-2 border-aspire-border pt-5 pb-4.5 last:border-b-0"
-                data-testid={`transaction-item-${item.id}`}
-              >
-                {/* Left: icon */}
-                <div
-                  className="shrink-0 h-12 w-12 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: item.iconBg }}
+          <Collapsible.Content className="px-6">
+            <div className="flex flex-col">
+              {MOCK_TRANSACTIONS.map((item) => (
+                <article
+                  key={item.id}
+                  className="flex items-start gap-3 bg-aspire-white border-b-2 border-aspire-border pt-5 pb-4.5 last:border-b-0"
+                  data-testid={`transaction-item-${item.id}`}
                 >
-                  <img
-                    src={item.icon}
-                    alt={item.note}
-                    className="h-[0.945rem] w-4 object-contain"
-                  />
-                </div>
-
-                {/* Right: all content */}
-                <div className="flex-1 min-w-0">
-                  {/* Row 1: merchant name + amount + arrow */}
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-sm leading-sm font-semibold text-aspire-black">
-                      {item.merchant}
-                    </p>
-                    <div className="flex gap-2.5 items-center shrink-0">
-                      <p
-                        className={`text-sm leading-sm font-bold whitespace-nowrap ${
-                          item.type === "credit"
-                            ? "text-aspire-green"
-                            : "text-aspire-black"
-                        }`}
-                      >
-                        {item.type === "credit" ? "+ S$" : "- S$"} {item.amount}
-                      </p>
-                      <img
-                        src={NextIcon}
-                        alt="view"
-                        className="w-[0.41rem] h-3 object-contain"
-                      />
-                    </div>
+                  {/* Left: icon */}
+                  <div
+                    className="shrink-0 h-12 w-12 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: item.iconBg }}
+                  >
+                    <img
+                      src={item.icon}
+                      alt={item.note}
+                      className="h-[0.945rem] w-4 object-contain"
+                    />
                   </div>
 
-                  {/* Row 2: date */}
-                  <p className="text-xs leading-sm text-aspire-gray mt-1">
-                    {item.date}
-                  </p>
+                  {/* Right: all content */}
+                  <div className="flex-1 min-w-0">
+                    {/* Row 1: merchant name + amount + arrow */}
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-sm leading-sm font-semibold text-aspire-black">
+                        {item.merchant}
+                      </p>
+                      <div className="flex gap-2.5 items-center shrink-0">
+                        <p
+                          className={`text-sm leading-sm font-bold whitespace-nowrap ${
+                            item.type === "credit"
+                              ? "text-aspire-green"
+                              : "text-aspire-black"
+                          }`}
+                        >
+                          {item.type === "credit" ? "+ S$" : "- S$"}{" "}
+                          {item.amount}
+                        </p>
+                        <img
+                          src={NextIcon}
+                          alt="view"
+                          className="w-[0.41rem] h-3 object-contain"
+                        />
+                      </div>
+                    </div>
 
-                  {/* Row 3: chip */}
-                  <DebitCardChip note={item.note} />
-                </div>
-              </article>
-            ))}
-          </div>
+                    {/* Row 2: date */}
+                    <p className="text-xs leading-sm text-aspire-gray mt-1">
+                      {item.date}
+                    </p>
 
-          {/* View all */}
+                    {/* Row 3: chip */}
+                    <DebitCardChip note={item.note} />
+                  </div>
+                </article>
+              ))}
+            </div>
+          </Collapsible.Content>
+        </Collapsible.Root>
+        {/* View all */}
+
+        {transactionsOpen && (
           <button
             type="button"
-            className="bg-aspire-green-light text-aspire-green text-xs leading-sm font-semibold w-full py-4 rounded-b-xl -mx-6 px-6 mt-0 border-t border-aspire-border-light"
-            style={{ width: "calc(100% + 3rem)" }}
+            className=" bg-aspire-green-light text-aspire-green text-xs leading-sm font-semibold w-full py-4 rounded-b-xl border border-aspire-border-light -mt-2 relative z-10"
           >
             View all card transactions
           </button>
-        </Collapsible.Content>
-      </Collapsible.Root>
+        )}
+      </div>
     </section>
   );
 };
