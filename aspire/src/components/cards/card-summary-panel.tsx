@@ -223,6 +223,14 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
               </article>
             ))}
           </div>
+
+          {/* View all */}
+          <button
+            type="button"
+            className=" bg-aspire-green-light text-aspire-green text-xs leading-sm font-semibold w-full py-4 rounded-b-xl border border-aspire-border-light"
+          >
+            View all card transactions
+          </button>
         </Collapsible.Content>
       </Collapsible.Root>
     </section>
