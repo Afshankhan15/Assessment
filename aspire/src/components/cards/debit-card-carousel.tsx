@@ -119,7 +119,7 @@ export const DebitCardCarousel = ({
 
       {/* ── emblaApi ── */}
       <div
-        className="flex items-center justify-center gap-2 mt-5"
+        className="flex items-center justify-center gap-2 mt-4"
         data-testid="carousel-indicator-row"
       >
         {cards.map((card, index) => (
