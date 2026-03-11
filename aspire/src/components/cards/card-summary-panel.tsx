@@ -141,10 +141,10 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
       <Collapsible.Root
         open={transactionsOpen}
         onOpenChange={setTransactionsOpen}
-        className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl"
+        className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl overflow-hidden"
       >
         <Collapsible.Trigger
-          className="bg-aspire-background border border-aspire-border rounded-xl shadow shadow-aspire-shadow-card flex w-full items-center justify-between px-6 py-6"
+          className="bg-aspire-background flex w-full items-center justify-between px-6 py-6 border border-aspire-border rounded-b-xl"
           data-testid="recent-transactions-toggle"
         >
           <div className="flex items-center gap-3">
