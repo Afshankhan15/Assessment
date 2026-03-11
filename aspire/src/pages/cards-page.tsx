@@ -1,11 +1,55 @@
+import { useState } from "react";
 import BoxIcon from "../assets/images/box@3x.png";
-import AspireLogo from "../assets/images/Aspire Logo.png";
-import VisaLogo from "../assets/images/Visa Logo@3x.png";
-import RemoveEyeLogo from "../assets/images/remove_red_eye-24px@3x.png";
+import { useCards } from "../hooks/use-cards";
+import { AddCardDialog } from "../components/cards/add-card-dialog";
+import { DebitCardCarousel } from "../components/cards/debit-card-carousel";
 
 const CardsPage = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [toast, setToast] = useState<string>("");
+
+  const {
+    cards,
+    activeCard,
+    activeCardId,
+    isLoading,
+    showCardNumber,
+    setShowCardNumber,
+    setActiveCardId,
+    addCard,
+    toggleFreeze,
+  } = useCards();
+
+  const showToast = (message: string) => {
+    setToast(message);
+    setTimeout(() => setToast(""), 3000);
+  };
+
+  const handleAddCard = async (name: string) => {
+    await addCard(name);
+    setIsDialogOpen(false);
+    showToast("New card added successfully!");
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="text-sm text-aspire-black opacity-70">
+          Loading your cards...
+        </p>
+      </div>
+    );
+  }
+
   return (
     <section className="p-16">
+      {/* Toast notification */}
+      {toast && (
+        <div className="fixed top-6 right-6 z-50 rounded-lg bg-aspire-green px-5 py-3 text-sm font-semibold text-white shadow-lg">
+          {toast}
+        </div>
+      )}
+
       {/* HEADER SECTION */}
       <header className="flex flex-col">
         <p className="text-sm leading-xs">Available balance</p>
@@ -17,7 +61,13 @@ const CardsPage = () => {
             </span>
             <span className="text-title leading-xs font-bold">3,000</span>
           </div>
-          <button className="flex bg-aspire-blue text-aspire-white font-bold items-center gap-2 px-3 py-2 rounded-md">
+
+          {/* Add Card modal */}
+          <button
+            type="button"
+            onClick={() => setIsDialogOpen(true)}
+            className="flex bg-aspire-blue text-aspire-white font-bold items-center gap-2 px-3 py-2 rounded-lg hover:bg-aspire-blue/90 transition-colors cursor-pointer duration-20"
+          >
             <img className="h-5 w-5" src={BoxIcon} alt="box icon" />
             <span className="text-xs leading-sm">New card</span>
           </button>
@@ -32,59 +82,30 @@ const CardsPage = () => {
         <button className="opacity-30">All company cards</button>
       </div>
 
-      {/* card page content - section */}
-
+      {/* ── MAIN PANEL*/}
       <div className="bg-aspire-white grid grid-cols-2 px-10 py-8 mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
-        {/* 1st div */}
+        {/* LEFT COLUMN: carousel + action bar */}
         <div className="flex flex-col">
-          {/* show card text */}
-          <div className="flex items-center gap-1.5 text-aspire-green justify-end">
-            <img src={RemoveEyeLogo} alt="eye logo" className="w-4 h-4" />
-            <span className="text-xxs leading-description font-bold">
-              Show card number
-            </span>
-          </div>
-          {/* <CompanyCard /> */}
-          <div className="mt-3 flex flex-col bg-aspire-green p-7 rounded-xl">
-            <div className="flex justify-end">
-              <img
-                src={AspireLogo}
-                alt="Aspire logo"
-                className="w-20 h-6 bg-white"
-              />
-            </div>
-            {/* NAME */}
-            <p className="text-lg leading-description tracking-wide font-bold text-aspire-white mt-7">
-              Mark Henry
-            </p>
-            {/* CARD NUMBER*/}
-            <p className="mt-7 text-sm leading-sm text-aspire-white font-bold tracking-[0.2em]">
-              123456789
-            </p>
-            <div className="mt-4 flex items-center gap-9 text-xs text-aspire-white font-bold">
-              <div className="flex gap-1">
-                <p className="leading-sm tracking-wide">Thru:</p>
-                <p className="leading-sm tracking-wider">12/20</p>
-              </div>
-              <div className="flex items-center gap-1 leading-lg">
-                <p className="tracking-wide">CVV:</p>
-                <p className="text-lg tracking-wider">***</p>
-              </div>
-            </div>
-            <div className="flex justify-end">
-              <img src={VisaLogo} alt="Visa logo" className="max-w-16 h-5" />
-            </div>
-          </div>
-
-          <div className=""></div>
-
-          {/* option */}
-          <div>OPTIONS</div>
+          {/* NEW: replaces the static card — same visual, dynamic data + carousel */}
+          <DebitCardCarousel
+            cards={cards}
+            activeCard={activeCard}
+            showCardNumber={showCardNumber}
+            onToggleNumber={() => setShowCardNumber((v) => !v)}
+            onCardChange={setActiveCardId}
+          />
         </div>
 
-        {/* 2nd div: card + transaction */}
+        {/* RIGHT COLUMN: card details + transactions */}
         <div className="bg-orange-500">Transaction div</div>
       </div>
+
+      {/* Add Card modal*/}
+      <AddCardDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        onSubmit={handleAddCard}
+      />
     </section>
   );
 };
