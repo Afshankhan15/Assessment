@@ -60,12 +60,13 @@ export const DebitCardCarousel = ({
       <div className="mt-3 overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {cards.map((card) => (
-            <div key={card.id} className="flex-[0_0_100%] min-w-0">
+            <div key={card.id} className="flex-[0_0_100%] min-w-0 relative">
+              {/* Card body */}
               <div
-                className={`flex flex-col p-7 rounded-xl transition-all duration-300 ${
-                  activeCard?.frozen
-                    ? "bg-gray-400 opacity-60"
-                    : "bg-aspire-green shadow-[0_20px_40px_rgba(1,209,103,0.28)]"
+                className={`flex flex-col p-7 rounded-xl transition-all duration-500 ease-in-out ${
+                  card.frozen
+                    ? "bg-aspire-green opacity-30"
+                    : "bg-aspire-green opacity-100 shadow-[0_20px_40px_rgba(1,209,103,0.28)]"
                 }`}
               >
                 <div className="flex justify-end">
@@ -77,19 +78,17 @@ export const DebitCardCarousel = ({
                 </div>
 
                 <p className="text-lg leading-description tracking-wide font-bold text-aspire-white mt-7">
-                  {activeCard?.holderName}
+                  {card.holderName}
                 </p>
 
                 <p className="mt-7 text-sm leading-card text-aspire-white font-bold tracking-[0.96em]">
-                  {showCardNumber
-                    ? activeCard?.number
-                    : activeCard?.maskedNumber}
+                  {showCardNumber ? card.number : card.maskedNumber}
                 </p>
 
                 <div className="mt-4 flex items-center gap-12 text-xs text-aspire-white font-bold">
                   <div className="flex gap-2 leading-sm">
                     <p className="tracking-[0.05em]">Thru:</p>
-                    <p className="tracking-[0.25em]">{activeCard?.expiry}</p>
+                    <p className="tracking-[0.25em]">{card.expiry}</p>
                   </div>
                   <div className="flex items-center gap-2 leading-lg">
                     <p className="tracking-[0.05em]">CVV: </p>
@@ -106,10 +105,12 @@ export const DebitCardCarousel = ({
                 </div>
               </div>
 
-              {/* frozen overlay ── */}
-              {activeCard?.frozen && (
-                <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/20 text-white font-bold text-lg">
-                  ❄ Card Frozen
+              {/* Frozen overlay — only shown when this card is frozen */}
+              {card.frozen && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="text-aspire-navy/40 font-bold leading-title text-description">
+                    Card Frozen
+                  </span>
                 </div>
               )}
             </div>
@@ -117,7 +118,6 @@ export const DebitCardCarousel = ({
         </div>
       </div>
 
-      {/* ── emblaApi ── */}
       <div
         className="flex items-center justify-center gap-2 mt-4"
         data-testid="carousel-indicator-row"
