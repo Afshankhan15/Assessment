@@ -127,8 +127,10 @@ export const DebitCardCarousel = ({
             key={card.id}
             type="button"
             onClick={() => emblaApi?.scrollTo(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "w-6 bg-aspire-green" : "w-2 bg-gray-300"
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              index === currentIndex
+                ? "w-4 bg-aspire-green"
+                : "w-2 bg-aspire-green/20"
             }`}
             aria-label={`Go to card ${index + 1}`}
             data-testid={`carousel-dot-${index}`}
