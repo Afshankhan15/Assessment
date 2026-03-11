@@ -141,9 +141,10 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
       <Collapsible.Root
         open={transactionsOpen}
         onOpenChange={setTransactionsOpen}
+        className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl"
       >
         <Collapsible.Trigger
-          className="bg-aspire-background mt-6 border border-aspire-border rounded-xl shadow shadow-aspire-shadow-card flex w-full items-center justify-between px-6 py-6 text-left"
+          className="bg-aspire-background border border-aspire-border rounded-xl shadow shadow-aspire-shadow-card flex w-full items-center justify-between px-6 py-6"
           data-testid="recent-transactions-toggle"
         >
           <div className="flex items-center gap-3">
@@ -172,7 +173,7 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
             {MOCK_TRANSACTIONS.map((item) => (
               <article
                 key={item.id}
-                className="flex items-start gap-3 bg-aspire-white border-b-2 border-aspire-border pt-5 pb-4.5"
+                className="flex items-start gap-3 bg-aspire-white border-b-2 border-aspire-border pt-5 pb-4.5 last:border-b-0"
                 data-testid={`transaction-item-${item.id}`}
               >
                 {/* Left: icon */}
@@ -227,7 +228,8 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
           {/* View all */}
           <button
             type="button"
-            className=" bg-aspire-green-light text-aspire-green text-xs leading-sm font-semibold w-full py-4 rounded-b-xl border border-aspire-border-light"
+            className="bg-aspire-green-light text-aspire-green text-xs leading-sm font-semibold w-full py-4 rounded-b-xl -mx-6 px-6 mt-0 border-t border-aspire-border-light"
+            style={{ width: "calc(100% + 3rem)" }}
           >
             View all card transactions
           </button>
