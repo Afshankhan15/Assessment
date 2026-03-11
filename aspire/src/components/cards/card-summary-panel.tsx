@@ -84,7 +84,7 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
         onOpenChange={setCardDetailsOpen}
       >
         <Collapsible.Trigger
-          className="bg-aspire-background border border-aspire-border rounded-xl shadow shadow-aspire-shadow-card flex w-full items-center justify-between px-6 py-6 text-left"
+          className="bg-aspire-background border border-aspire-border rounded-xl shadow shadow-aspire-shadow-card flex w-full items-center justify-between px-6 py-6 text-left cursor-pointer"
           data-testid="card-details-toggle"
         >
           <div className="flex items-center gap-3">
@@ -145,7 +145,7 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
           className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl overflow-hidden relative z-20"
         >
           <Collapsible.Trigger
-            className="bg-aspire-background flex w-full items-center justify-between px-6 py-6 border border-aspire-border rounded-b-xl"
+            className="bg-aspire-background flex w-full items-center justify-between px-6 py-6 border border-aspire-border rounded-b-xl cursor-pointer"
             data-testid="recent-transactions-toggle"
           >
             <div className="flex items-center gap-3">
