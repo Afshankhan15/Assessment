@@ -92,7 +92,11 @@ export const DebitCardCarousel = ({
                   {card.holderName}
                 </p>
 
-                <p className="mt-7 text-sm leading-card text-aspire-white font-bold tracking-[0.96em]">
+                <p
+                  className={`mt-7 text-sm leading-card text-aspire-white font-bold ${
+                    showCardNumber ? "tracking-[0.75em]" : "tracking-[0.89em]"
+                  }`}
+                >
                   {showCardNumber ? card.number : card.maskedNumber}
                 </p>
 
