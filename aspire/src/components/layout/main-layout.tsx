@@ -14,7 +14,9 @@ export const MainLayout: FC = () => {
           className="flex-1 overflow-y-auto overflow-x-hidden"
           data-testid="main-layout-content"
         >
-          <Outlet />
+          <div className="mx-auto w-full max-w-7xl">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>
