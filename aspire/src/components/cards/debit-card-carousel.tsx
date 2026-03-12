@@ -46,27 +46,32 @@ export const DebitCardCarousel = ({
 
   return (
     <section data-testid="debit-card-carousel">
-      <div className="flex items-center gap-2 text-aspire-green justify-end aspireMd:mt-[1.83rem] mt-0">
-        <img
-          src={RemoveEyeLogo}
-          alt="eye logo"
-          onClick={onToggleNumber}
-          className={`w-4 h-4 cursor-pointer transition-opacity duration-300 ${
-            showCardNumber ? "opacity-30" : "opacity-100"
-          }`}
-        />
-        <button
-          type="button"
-          className="text-xxs leading-description font-bold text-aspire-green"
-        >
-          {showCardNumber ? "Hide card number" : "Show card number"}
-        </button>
+      <div className="flex items-center text-aspire-green justify-end aspireMd:mt-[1.83rem] mt-0 pr-8 aspireMd:pr-0">
+        <div className="flex bg-aspire-white gap-2 items-center py-1 px-2.5 rounded-md -mb-3.5 aspireMd:mb-0">
+          <img
+            src={RemoveEyeLogo}
+            alt="eye logo"
+            onClick={onToggleNumber}
+            className={`w-4 h-4 cursor-pointer transition-opacity duration-300 ${
+              showCardNumber ? "opacity-30" : "opacity-100"
+            }`}
+          />
+          <button
+            type="button"
+            className="text-xxs leading-description font-bold text-aspire-green"
+          >
+            {showCardNumber ? "Hide card number" : "Show card number"}
+          </button>
+        </div>
       </div>
 
       <div className="mt-3 overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {cards.map((card) => (
-            <div key={card.id} className="flex-[0_0_100%] min-w-0 relative">
+            <div
+              key={card.id}
+              className="flex-[0_0_100%] min-w-0 relative px-6 aspireMd:px-0"
+            >
               {/* Card body */}
               <div
                 className={`flex flex-col p-7 rounded-xl transition-all duration-500 ease-in-out ${

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BoxIcon from "../assets/images/box@3x.png";
+import BoxMobileIcon from "../assets/images/box@2x.png";
 import { useCards } from "../hooks/use-cards";
 import { AddCardDialog } from "../components/cards/add-card-dialog";
 import { DebitCardCarousel } from "../components/cards/debit-card-carousel";
@@ -48,7 +49,7 @@ const CardsPage = () => {
   }
 
   return (
-    <section className="p-0 aspireMd:p-[3.7rem]">
+    <section className="p-0 aspireMd:p-[3.7rem] bg-aspire-navy aspireMd:bg-aspire-white">
       {/* Toast notification */}
       {toast && (
         <div className="fixed top-6 right-6 z-50 rounded-lg bg-aspire-green px-5 py-3 text-sm font-semibold text-white shadow-lg">
@@ -58,30 +59,46 @@ const CardsPage = () => {
 
       {/* HEADER SECTION */}
       <header className="flex flex-col px-6 pt-7 aspireMd:px-0 aspireMd:pt-0">
-        <p className="text-sm leading-xs">Available balance</p>
+        <p className="text-sm leading-xs text-aspire-white aspireMd:text-aspire-black">
+          <span className="aspireMd:hidden">Account balance</span>
+          <span className="hidden aspireMd:block">Available balance</span>
+        </p>
 
         <div className="flex flex-wrap justify-between items-center mt-2.5">
           <div className="flex gap-3 items-center">
             <span className="text-xs leading-xs bg-aspire-green text-aspire-white px-3 py-1 rounded-sm">
               S$
             </span>
-            <span className="text-title leading-xs font-bold">3,000</span>
+            <span className="text-title leading-xs font-bold text-aspire-white aspireMd:text-aspire-black">
+              3,000
+            </span>
           </div>
 
           {/* Add Card modal */}
           <button
             type="button"
             onClick={() => setIsDialogOpen(true)}
-            className="flex bg-aspire-blue text-aspire-white font-bold items-center gap-2 px-3 py-2 rounded-lg hover:bg-aspire-blue/90 transition-colors cursor-pointer duration-20"
+            className="flex bg-none aspireMd:bg-aspire-blue text-aspire-white font-bold items-center gap-2 px-3 py-2 rounded-lg hover:bg-aspire-blue/90 transition-colors cursor-pointer duration-20"
           >
-            <img className="h-5 w-5" src={BoxIcon} alt="box icon" />
-            <span className="text-xs leading-sm">New card</span>
+            <img
+              className="h-5 w-5 aspireMd:hidden"
+              src={BoxMobileIcon}
+              alt="box icon"
+            />
+            <img
+              className="h-5 w-5 hidden aspireMd:block"
+              src={BoxIcon}
+              alt="box icon"
+            />
+            <span className="text-xs leading-sm text-aspire-blue-light aspireMd:text-aspire-white">
+              New card
+            </span>
           </button>
         </div>
       </header>
 
       {/* tab section */}
-      <div className="flex gap-8 mt-9 text-sm leading-description text-aspire-black px-6 aspireMd:px-0">
+      <div className="flex gap-8 mt-9 text-sm leading-description text-aspire-white aspireMd:text-aspire-black px-6 aspireMd:px-0">
         <button className="font-semibold border-b-2 border-aspire-blue-light pb-1">
           My debit cards
         </button>
@@ -89,7 +106,7 @@ const CardsPage = () => {
       </div>
 
       {/* ── MAIN PANEL*/}
-      <div className="bg-aspire-white grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-12 px-10 py-8 mt-0 aspireMd:mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
+      <div className="bg-aspire-navy aspireMd:bg-aspire-white grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-12 px-0 py-0 aspireMd:px-10 aspireMd:py-8 mt-0 aspireMd:mt-4 border-none aspireMd:border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
         {/* LEFT COLUMN: carousel + action bar */}
         <div className="flex flex-col">
           {/* NEW: replaces the static card — same visual, dynamic data + carousel */}
