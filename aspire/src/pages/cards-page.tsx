@@ -6,10 +6,9 @@ import { AddCardDialog } from "../components/cards/add-card-dialog";
 import { DebitCardCarousel } from "../components/cards/debit-card-carousel";
 import { CardActionBar } from "../components/cards/card-action-bar";
 import { CardSummaryPanel } from "../components/cards/card-summary-panel";
-
+import toast from "react-hot-toast";
 const CardsPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
-  const [toast, setToast] = useState<string>("");
 
   const {
     cards,
@@ -23,15 +22,10 @@ const CardsPage = () => {
     toggleFreeze,
   } = useCards();
 
-  const showToast = (message: string) => {
-    setToast(message);
-    setTimeout(() => setToast(""), 3000);
-  };
-
   const handleAddCard = async (name: string) => {
     await addCard(name);
     setIsDialogOpen(false);
-    showToast("New card added successfully!");
+    toast.success("New card added successfully!");
   };
 
   const handleFreezeToggle = async () => {
@@ -50,13 +44,6 @@ const CardsPage = () => {
 
   return (
     <section className="p-0 aspireMd:p-[3.7rem] bg-aspire-navy aspireMd:bg-aspire-white">
-      {/* Toast notification */}
-      {toast && (
-        <div className="fixed top-6 right-6 z-50 rounded-lg bg-aspire-green px-5 py-3 text-sm font-semibold text-white shadow-lg">
-          {toast}
-        </div>
-      )}
-
       {/* HEADER SECTION */}
       <header className="flex flex-col px-6 pt-7 aspireMd:px-0 aspireMd:pt-0">
         <p className="text-sm leading-xs text-aspire-white aspireMd:text-aspire-black">
