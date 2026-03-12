@@ -40,7 +40,7 @@ export const CardActionBar = ({
   ];
 
   return (
-    <div className="flex mt-8 justify-between py-5 px-6 xl:px-8 bg-aspire-background-light rounded-xl">
+    <div className="flex mt-6 xl:mt-8 justify-between py-5 px-6 xl:px-8 bg-aspire-background-light rounded-xl">
       {actions.map(({ id, line1, line2, icon, onClick }) => (
         <button
           key={id}

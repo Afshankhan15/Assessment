@@ -77,7 +77,7 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
   const [transactionsOpen, setTransactionsOpen] = useState(true);
 
   return (
-    <section className="bg-aspire-white mt-[3.782rem]">
+    <section className="bg-aspire-white mt-0 xl:mt-[3.782rem]">
       {/* Card Details */}
       <Collapsible.Root
         open={cardDetailsOpen}

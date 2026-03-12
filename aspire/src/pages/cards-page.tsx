@@ -48,7 +48,7 @@ const CardsPage = () => {
   }
 
   return (
-    <section className="p-16">
+    <section className="p-[3.7rem]">
       {/* Toast notification */}
       {toast && (
         <div className="fixed top-6 right-6 z-50 rounded-lg bg-aspire-green px-5 py-3 text-sm font-semibold text-white shadow-lg">
@@ -89,7 +89,7 @@ const CardsPage = () => {
       </div>
 
       {/* ── MAIN PANEL*/}
-      <div className="bg-aspire-white grid grid-cols-2 gap-12 px-10 py-8 mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
+      <div className="bg-aspire-white grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-12 px-10 py-8 mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
         {/* LEFT COLUMN: carousel + action bar */}
         <div className="flex flex-col">
           {/* NEW: replaces the static card — same visual, dynamic data + carousel */}
