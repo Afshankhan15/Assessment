@@ -53,7 +53,7 @@ export const AddCardDialog = ({
       isOpen={isOpen}
       onRequestClose={onClose}
       overlayClassName="fixed inset-0 bg-aspire-black/40 backdrop-blur-sm flex items-center justify-center z-50"
-      className="w-full max-w-md bg-aspire-background rounded-xl p-7 shadow-[0_20px_40px_rgba(0,0,0,0.15)] outline-none mx-4"
+      className="w-full max-w-md bg-aspire-background rounded-xl p-7 shadow-aspire-shadow-card outline-none mx-4"
     >
       <p className="text-title leading-title font-bold text-aspire-black">
         Add New Card
