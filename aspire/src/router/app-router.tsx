@@ -20,6 +20,8 @@ export const AppRouter = () => {
             path="/settings"
             element={<PlaceholderPage title="Settings" />}
           />
+          {/* 404 route */}
+          <Route path="*" element={<PlaceholderPage title="Not Found" />} />
         </Route>
       </Routes>
     </BrowserRouter>
