@@ -15,7 +15,7 @@ const SidebarNavLink = ({ item }: SidebarNavLinkProps) => (
     className={({ isActive }) =>
       [
         "flex items-center gap-4 transition-colors duration-200 ease-in-out",
-        "text-subtitle leading-title",
+        "text-sm leading-lg md:text-md md:leading-subtitle lg:text-md lg:leading-title xl:text-description xl:leading-title",
         isActive ? "text-aspire-green font-bold" : "text-aspire-white",
       ].join(" ")
     }
@@ -37,18 +37,22 @@ const SidebarNavLink = ({ item }: SidebarNavLinkProps) => (
 export const AppSidebar = () => {
   return (
     <aside
-      className="w-full bg-aspire-navy text-aspire-white md:min-h-screen md:w-[25%]"
+      className="w-full bg-aspire-navy text-aspire-white md:min-h-screen md:w-72 lg:w-80 xl:w-96"
       data-testid="app-sidebar"
     >
-      <div className="pt-16 pl-16" data-testid="sidebar-brand-block">
+      <div
+        className="pt-12 md:pl-12 md:pr-4 lg:pr-8 xl:pr-16"
+        data-testid="sidebar-brand-block"
+      >
         <img
           src={AspireLogo}
           alt="Aspire logo"
-          className="w-32 h-9"
+          className="w-32 h-9 object-contain"
           data-testid="sidebar-logo"
         />
+
         <p
-          className="mt-5 text-description leading-description opacity-30 pr-14"
+          className="mt-5 text-xs leading-sm md:text-sm md:leading-description lg:text-sm lg:leading-description xl:text-md xl:leading-description opacity-30"
           data-testid="sidebar-tagline"
         >
           Trusted way of banking for 3,000+ SMEs and startups in Singapore
@@ -56,7 +60,7 @@ export const AppSidebar = () => {
       </div>
 
       <nav
-        className="pl-16 grid grid-cols-2 gap-16 md:grid-cols-1 mt-20"
+        className="md:pl-12 grid grid-cols-2 gap-[3.8rem] md:grid-cols-1 mt-20"
         data-testid="sidebar-nav"
       >
         {sidebarNavigation.map((item: NavItem) => (
