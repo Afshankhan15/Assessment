@@ -9,7 +9,9 @@ export const MainLayout: FC = () => {
       data-testid="main-layout"
     >
       <div className="flex h-full w-full flex-col md:flex-row">
-        <AppSidebar />
+        <div className="hidden aspireMd:block">
+          <AppSidebar />
+        </div>
         <main
           className="flex-1 overflow-y-auto overflow-x-hidden"
           data-testid="main-layout-content"
