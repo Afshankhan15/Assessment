@@ -46,7 +46,7 @@ export const CardActionBar = ({
           key={id}
           type="button"
           onClick={onClick}
-          className="flex flex-col items-center gap-2 transition-opacity duration-300 ease-in-out hover:opacity-70 cursor-pointer"
+          className="flex flex-col items-center gap-2 transition-opacity duration-300 ease-in-out hover:opacity-80 cursor-pointer"
           data-testid={`card-action-${id}`}
         >
           <img

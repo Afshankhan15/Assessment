@@ -94,7 +94,7 @@ export const AddCardDialog = ({
             type="button"
             onClick={onClose}
             className="px-5 py-2.5 rounded-lg border border-gray-300
-            text-xs font-bold text-aspire-black hover:bg-aspire-white/90 cursor-pointer"
+            text-xs font-bold text-aspire-black hover:bg-aspire-white/80 cursor-pointer"
           >
             Cancel
           </button>
@@ -103,7 +103,7 @@ export const AddCardDialog = ({
             type="submit"
             disabled={isSubmitting}
             className="px-3 py-2 rounded-lg bg-aspire-blue
-            text-xs font-bold text-aspire-white hover:bg-aspire-blue/90
+            text-xs font-bold text-aspire-white hover:bg-aspire-blue/80
             disabled:opacity-60 cursor-pointer transition-colors duration-200"
           >
             {isSubmitting ? "Adding..." : "Add Card"}

@@ -65,7 +65,7 @@ const CardsPage = () => {
           <button
             type="button"
             onClick={() => setIsDialogOpen(true)}
-            className="flex bg-none aspireMd:bg-aspire-blue text-aspire-white font-bold items-center gap-2 px-3 py-2 rounded-lg hover:bg-aspire-blue/90 transition-colors cursor-pointer duration-20"
+            className="flex bg-none aspireMd:bg-aspire-blue text-aspire-white font-bold items-center gap-2 px-3 py-2 rounded-lg hover:bg-aspire-blue/80 cursor-pointer transition-opacity ease-in-out duration-300"
           >
             <img
               className="h-5 w-5 aspireMd:hidden"

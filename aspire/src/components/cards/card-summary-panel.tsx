@@ -82,6 +82,7 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
       <Collapsible.Root
         open={cardDetailsOpen}
         onOpenChange={setCardDetailsOpen}
+        className="hover:opacity-80 transition-opacity duration-300"
       >
         <Collapsible.Trigger
           className="bg-aspire-background border border-aspire-border rounded-xl shadow shadow-aspire-shadow-card flex w-full items-center justify-between px-6 py-6 text-left cursor-pointer"
@@ -142,7 +143,7 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
         <Collapsible.Root
           open={transactionsOpen}
           onOpenChange={setTransactionsOpen}
-          className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl overflow-hidden relative z-20"
+          className="bg-aspire-white border border-aspire-border-dark mt-6 rounded-xl overflow-hidden relative z-20 hover:opacity-80 transition-opacity duration-300"
         >
           <Collapsible.Trigger
             className="bg-aspire-background flex w-full items-center justify-between px-6 py-6 border border-aspire-border rounded-b-xl cursor-pointer"
@@ -233,7 +234,7 @@ export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
         {transactionsOpen && (
           <button
             type="button"
-            className=" bg-aspire-green-light text-aspire-green text-xs leading-sm font-semibold w-full py-4 rounded-b-xl border border-aspire-border-light -mt-2 relative z-10"
+            className=" bg-aspire-green-light text-aspire-green text-xs leading-sm font-semibold w-full py-4 rounded-b-xl border border-aspire-border-light -mt-2 relative z-10 cursor-pointer hover:opacity-80 transition-opacity duration-300"
           >
             View all card transactions
           </button>
