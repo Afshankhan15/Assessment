@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* ── Breakpoints ───────────────────────────────────── */
+  --breakpoint-aspireMd: 840px;
+
   /* ── colours ─────────────────────────────────────── */
   --color-aspire-navy: #0c365a;
   --color-aspire-green: #01d167;
