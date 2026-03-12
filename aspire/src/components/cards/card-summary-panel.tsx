@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as Collapsible from "@radix-ui/react-collapsible";
-import type { Card, Transaction } from "../../types/card";
+import type { Transaction } from "../../types/card";
 
 import FileStorageIcon from "../../assets/images/file-storage@3x.png";
 import FlightIcon from "../../assets/images/flights@3x.png";
@@ -68,13 +68,11 @@ const DebitCardChip = ({ note }: { note: string }) => (
     </span>
   </div>
 );
-interface CardSummaryPanelProps {
-  activeCard: Card | undefined;
-}
+// interface CardSummaryPanelProps {
+//   activeCard?: Card | undefined;
+// }
 
-export const CardSummaryPanel = ({
-  activeCard: _activeCard,
-}: CardSummaryPanelProps) => {
+export const CardSummaryPanel = () => {
   const [cardDetailsOpen, setCardDetailsOpen] = useState(false);
   const [transactionsOpen, setTransactionsOpen] = useState(true);
 

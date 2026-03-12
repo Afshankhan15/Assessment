@@ -13,7 +13,6 @@ const CardsPage = () => {
   const {
     cards,
     activeCard,
-    activeCardId,
     isLoading,
     showCardNumber,
     setShowCardNumber,
@@ -116,7 +115,7 @@ const CardsPage = () => {
 
         {/* RIGHT COLUMN: card details + transactions */}
         <CardSummaryPanel
-          activeCard={cards.find((c) => c.id === activeCardId)}
+        // activeCard={cards.find((c) => c.id === activeCardId)}
         />
       </div>
 
