@@ -16,39 +16,47 @@ export const CardActionBar = ({
 }: CardActionBarProps) => {
   const actions: {
     id: string;
-    label: string;
+    line1: string;
+    line2: string;
     icon: string;
     onClick?: () => void;
-    isPrimary?: boolean;
   }[] = [
     {
       id: "freeze-toggle",
-      label: activeCard?.frozen ? "Unfreeze card" : "Freeze card",
+      line1: activeCard?.frozen ? "Unfreeze" : "Freeze",
+      line2: "card",
       icon: FreezeCardIcon,
       onClick: onToggleFreeze,
-      isPrimary: true,
     },
-    { id: "spend-limit", label: "Set spend limit", icon: SetSpendIcon },
-    { id: "gpay", label: "Add to GPay", icon: GPayIcon },
-    { id: "replace", label: "Replace card", icon: ReplaceIcon },
-    { id: "cancel", label: "Cancel card", icon: DeactivateIcon },
+    {
+      id: "spend-limit",
+      line1: "Set spend",
+      line2: "limit",
+      icon: SetSpendIcon,
+    },
+    { id: "gpay", line1: "Add to", line2: "GPay", icon: GPayIcon },
+    { id: "replace", line1: "Replace", line2: "card", icon: ReplaceIcon },
+    { id: "cancel", line1: "Cancel", line2: "card", icon: DeactivateIcon },
   ];
 
   return (
-    <div className="flex mt-8 bg-aspire-background-light gap-7 py-5 px-8 rounded-xl">
-      {actions.map(({ id, label, icon, onClick, isPrimary }) => (
+    <div className="flex mt-8 justify-between py-5 px-6 xl:px-8 bg-aspire-background-light rounded-xl">
+      {actions.map(({ id, line1, line2, icon, onClick }) => (
         <button
           key={id}
           type="button"
           onClick={onClick}
-          className={`flex flex-col items-center justify-center gap-2 transition-all duration-300 ease-in-out cursor-pointer `}
+          className="flex flex-col items-center gap-2 transition-opacity duration-300 ease-in-out hover:opacity-70 cursor-pointer"
           data-testid={`card-action-${id}`}
         >
-          <span className="flex items-center h-8 w-8 rounded-full">
-            <img src={icon} alt={label} className="h-8 w-8" />
-          </span>
-          <span className="text-aspire-navy text-xs leading-xxs text-center">
-            {label}
+          <img
+            src={icon}
+            alt={`${line1} ${line2}`}
+            className="h-8 w-8 object-contain"
+          />
+          <span className="flex flex-col items-center text-aspire-navy text-xs leading-tight text-center">
+            <span>{line1}</span>
+            <span>{line2}</span>
           </span>
         </button>
       ))}
