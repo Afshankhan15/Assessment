@@ -72,7 +72,9 @@ interface CardSummaryPanelProps {
   activeCard: Card | undefined;
 }
 
-export const CardSummaryPanel = ({ activeCard }: CardSummaryPanelProps) => {
+export const CardSummaryPanel = ({
+  activeCard: _activeCard,
+}: CardSummaryPanelProps) => {
   const [cardDetailsOpen, setCardDetailsOpen] = useState(false);
   const [transactionsOpen, setTransactionsOpen] = useState(true);
 
