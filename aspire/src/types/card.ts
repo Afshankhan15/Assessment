@@ -17,6 +17,8 @@ export interface Transaction {
   amount: string;
   type: "credit" | "debit";
   note: string;
+  iconBg?: string;
+  icon?: string;
 }
 
 export interface CardsState {
