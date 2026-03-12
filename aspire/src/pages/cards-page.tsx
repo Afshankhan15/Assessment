@@ -48,7 +48,7 @@ const CardsPage = () => {
   }
 
   return (
-    <section className="p-[3.7rem]">
+    <section className="p-0 aspireMd:p-[3.7rem]">
       {/* Toast notification */}
       {toast && (
         <div className="fixed top-6 right-6 z-50 rounded-lg bg-aspire-green px-5 py-3 text-sm font-semibold text-white shadow-lg">
@@ -57,7 +57,7 @@ const CardsPage = () => {
       )}
 
       {/* HEADER SECTION */}
-      <header className="flex flex-col">
+      <header className="flex flex-col px-6 pt-7 aspireMd:px-0 aspireMd:pt-0">
         <p className="text-sm leading-xs">Available balance</p>
 
         <div className="flex flex-wrap justify-between items-center mt-2.5">
@@ -81,7 +81,7 @@ const CardsPage = () => {
       </header>
 
       {/* tab section */}
-      <div className="flex gap-8 mt-9 text-sm leading-description text-aspire-black">
+      <div className="flex gap-8 mt-9 text-sm leading-description text-aspire-black px-6 aspireMd:px-0">
         <button className="font-semibold border-b-2 border-aspire-blue-light pb-1">
           My debit cards
         </button>
@@ -89,7 +89,7 @@ const CardsPage = () => {
       </div>
 
       {/* ── MAIN PANEL*/}
-      <div className="bg-aspire-white grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-12 px-10 py-8 mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
+      <div className="bg-aspire-white grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-12 px-10 py-8 mt-0 aspireMd:mt-4 border border-aspire-white-light shadow-aspire-shadow rounded-2xl shadow-[0_20px_40px_rgba(1,209,103,0.28)] transition-opacity duration-300">
         {/* LEFT COLUMN: carousel + action bar */}
         <div className="flex flex-col">
           {/* NEW: replaces the static card — same visual, dynamic data + carousel */}
