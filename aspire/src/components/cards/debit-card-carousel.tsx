@@ -46,7 +46,7 @@ export const DebitCardCarousel = ({
 
   return (
     <section data-testid="debit-card-carousel">
-      <div className="flex items-center text-aspire-green justify-end aspireMd:mt-[1.83rem] mt-0 pr-8 aspireMd:pr-0">
+      <div className="flex items-center text-aspire-green justify-end aspireMd:mt-[1.83rem] pr-8 aspireMd:pr-0 mt-7">
         <div className="flex bg-aspire-white gap-2 items-center py-1 px-2.5 rounded-md -mb-3.5 aspireMd:mb-0">
           <img
             src={RemoveEyeLogo}
