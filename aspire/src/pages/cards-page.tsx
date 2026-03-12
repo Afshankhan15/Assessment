@@ -86,10 +86,12 @@ const CardsPage = () => {
 
       {/* tab section */}
       <div className="flex gap-8 mt-9 text-sm leading-description text-aspire-white aspireMd:text-aspire-black px-6 aspireMd:px-0">
-        <button className="font-semibold border-b-2 border-aspire-blue-light pb-1">
+        <button className="font-semibold border-b-2 border-aspire-blue-light pb-1 cursor-pointer">
           My debit cards
         </button>
-        <button className="opacity-30">All company cards</button>
+        <button className="opacity-30 cursor-not-allowed">
+          All company cards
+        </button>
       </div>
 
       {/* ── MAIN PANEL*/}
