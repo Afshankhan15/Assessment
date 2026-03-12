@@ -70,7 +70,7 @@ export const DebitCardCarousel = ({
           {cards.map((card) => (
             <div
               key={card.id}
-              className="flex-[0_0_100%] min-w-0 relative px-6 aspireMd:px-0"
+              className="flex-[0_0_100%] min-w-0 relative px-6 aspireMd:px-0 rounded-xl overflow-hidden"
             >
               {/* Card body */}
               <div
