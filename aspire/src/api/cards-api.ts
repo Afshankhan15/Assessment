@@ -13,6 +13,7 @@ const persistCards = (cards: Card[]): void => {
 const getSeedCards = (): Card[] => [
   buildCard("Mark Henry"),
   buildCard("Sarah Adams"),
+  buildCard("John Doe"),
 ];
 
 const readCards = (): Card[] => {
