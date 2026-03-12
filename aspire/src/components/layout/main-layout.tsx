@@ -4,11 +4,14 @@ import { AppSidebar } from "./app-sidebar";
 
 export const MainLayout: FC = () => {
   return (
-    <div className="min-h-screen bg-aspire-white" data-testid="main-layout">
-      <div className="flex min-h-screen w-full flex-col md:flex-row">
+    <div
+      className="h-screen overflow-hidden bg-aspire-white"
+      data-testid="main-layout"
+    >
+      <div className="flex h-full w-full flex-col md:flex-row">
         <AppSidebar />
         <main
-          className="flex-1 overflow-x-hidden"
+          className="flex-1 overflow-y-auto overflow-x-hidden"
           data-testid="main-layout-content"
         >
           <Outlet />

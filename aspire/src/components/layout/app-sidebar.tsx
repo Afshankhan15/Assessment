@@ -37,7 +37,7 @@ const SidebarNavLink = ({ item }: SidebarNavLinkProps) => (
 export const AppSidebar = () => {
   return (
     <aside
-      className="w-full bg-aspire-navy text-aspire-white md:min-h-screen md:w-72 lg:w-80 xl:w-96"
+      className="w-full bg-aspire-navy text-aspire-white md:h-screen md:sticky md:top-0 md:overflow-y-auto md:w-72 lg:w-80 xl:w-96"
       data-testid="app-sidebar"
     >
       <div
