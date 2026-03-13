@@ -93,14 +93,22 @@ export const DebitCardCarousel = ({
                 </p>
 
                 <p
+                  className={`mt-7text-sm leading-card text-aspire-white font-bold ${
+                    showCardNumber
+                      ? "tracking-[0.5em] aspireMd:tracking-[0.58em] lg:tracking-[0.4em] xl:tracking-[0.48em] aspirexl:tracking-[0.75em]"
+                      : "tracking-[0.6em] aspireMd:tracking-[0.70em] lg:tracking-[0.6em] xl:tracking-[0.6em] aspirexl:tracking-[0.89em]"
+                  }`}
+                >
+                  {showCardNumber ? card.number : card.maskedNumber}
+                </p>
+
+                <p
                   className={`mt-7 text-sm leading-card text-aspire-white font-bold ${
                     showCardNumber
                       ? "tracking-[0.5em] aspireMd:tracking-[0.58em] lg:tracking-[0.48em] 2xl:tracking-[0.75em]"
                       : "tracking-[0.6em] aspireMd:tracking-[0.70em] lg:tracking-[0.6em] 2xl:tracking-[0.89em]"
                   }`}
-                >
-                  {showCardNumber ? card.number : card.maskedNumber}
-                </p>
+                ></p>
 
                 <div className="mt-4 flex items-center gap-12 text-xs text-aspire-white font-bold">
                   <div className="flex gap-2 leading-sm">
