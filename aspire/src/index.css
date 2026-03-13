@@ -3,6 +3,8 @@
 @theme {
   /* ── Breakpoints ───────────────────────────────────── */
   --breakpoint-aspireMd: 840px;
+  --breakpoint-aspireLg: 1200px;
+  --breakpoint-aspirexl: 1430px;
 
   /* ── colours ─────────────────────────────────────── */
   --color-aspire-navy: #0c365a;
