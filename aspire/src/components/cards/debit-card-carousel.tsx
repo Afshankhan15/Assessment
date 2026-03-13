@@ -105,11 +105,13 @@ export const DebitCardCarousel = ({
                 <div className="mt-4 flex items-center gap-12 text-xs text-aspire-white font-bold">
                   <div className="flex gap-2 leading-sm">
                     <p className="tracking-[0.05em]">Thru:</p>
-                    <p className="tracking-[0.25em]">{card.expiry}</p>
+                    <p className="tracking-[0.05em]">{card.expiry}</p>
                   </div>
                   <div className="flex items-center gap-2 leading-lg">
                     <p className="tracking-[0.05em]">CVV: </p>
-                    <p className="text-lg tracking-[0.45em]">***</p>
+                    <p className="tracking-[0.28em] text-description translate-y-0.5">
+                      ***
+                    </p>
                   </div>
                 </div>
 
